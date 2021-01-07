@@ -27,7 +27,7 @@ function searchMovie() {
                                     <div class="text-2xl font-extrabold text-dark_gray">
                                         `+ data.Year +`
                                     </div>
-                                    <a class="see-detail modal-open bg-bluesky border border-gray hover:border-black text-dark_white hover:text-blue font-bold py-2 px-4 rounded-full" href="#" data-id"`+ data.imdbID + `">See Detail</a>
+                                    <a class="see-detail modal-open bg-bluesky border border-gray hover:border-black text-dark_white hover:text-blue font-bold py-2 px-4 rounded-full" href="#" data-id="`+ data.imdbID + `">See Detail</a>
                             </div>
                         </div>
                     </div>`);
@@ -53,10 +53,17 @@ function searchMovie() {
                 }if (isEscape && document.body.classList.contains('modal-active')) {
                     toggleModal()}};
 
-                let see_detail = document.querySelectorAll(".see-detail"); 
+                // let see_detail = document.querySelectorAll(".see-detail"); 
+                // see_detail.forEach((link) => {
+                //     $('.see-detail').on('click', function () {
+                //         console.log($(link).data('id'));
+                //     });
+                // });
+
+                let see_detail = document.querySelectorAll(".see-detail");
                 see_detail.forEach((link) => {
-                    $('.see-detail').on('click', function () {
-                        console.log($(link).data('id'));
+                    link.addEventListener("click", () => {
+                        console.log(link.dataset.id);
                     });
                 });
 
